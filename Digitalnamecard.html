@@ -4,27 +4,382 @@
 <meta charset="utf-8">
 <title>Impactsoft 3D Card</title>
 <style>
-body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#000;perspective:1200px}
-#box{width:300px;height:180px;transform-style:preserve-3d;animation:spin 8s linear infinite;position:relative}
-@keyframes spin{to{transform:rotateY(360deg)}}
-.face{position:absolute;width:300px;height:180px;background:url(https://i.ibb.co/7cm0CV6/namecard2025b.png) center/cover;border:solid 1px rgba(255,255,255,.15)}
-.front{transform:translateZ(8px)}.back{transform:rotateY(180deg) translateZ(8px)}
-.top,.bottom{width:300px;height:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
-.left,.right{width:16px;height:180px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
-.top{transform:rotateX(90deg) translateZ(90px)}.bottom{transform:rotateX(-90deg) translateZ(90px)}
-.left{transform:rotateY(-90deg) translateZ(150px)}.right{transform:rotateY(90deg) translateZ(150px)}
-.btn{position:absolute;font-size:13px;font-family:system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:6px 10px;text-decoration:none;text-align:center;z-index:10}
-#linktree{top:50%;left:50%;transform:translate(-50%,-50%);width:120px}
-#site{top:12px;right:12px;width:90px}#wa{bottom:12px;right:12px;width:90px}
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    perspective: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Larger 3D Card Container */
+#box {
+    width: 500px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: spin 8s linear infinite;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+@keyframes spin {
+    to { transform: rotateY(360deg); }
+}
+
+.face {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background: url('https://lclim2928.github.io/2025nameCard/namecard2025b.png') left center/cover;
+    border: solid 1px rgba(255,255,255,.15);
+    background-size: 110% auto;
+    background-position: 15% center;
+}
+
+.front { transform: translateZ(15px); }
+.back { transform: rotateY(180deg) translateZ(15px); }
+
+.top, .bottom {
+    width: 500px;
+    height: 25px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(4px);
+}
+
+.left, .right {
+    width: 25px;
+    height: 300px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(4px);
+}
+
+.top { transform: rotateX(90deg) translateZ(150px); }
+.bottom { transform: rotateX(-90deg) translateZ(150px); }
+.left { transform: rotateY(-90deg) translateZ(250px); }
+.right { transform: rotateY(90deg) translateZ(250px); }
+
+/* Buttons Container - Below the card */
+#buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 100;
+    pointer-events: auto;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    font-size: 14px;
+    font-family: system-ui, sans-serif;
+    color: #fff;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 110px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Website - Purple */
+.btn-website {
+    background: rgba(103, 58, 183, 0.8);
+    border-color: rgba(103, 58, 183, 0.6);
+}
+
+/* Facebook - Blue */
+.btn-facebook {
+    background: rgba(59, 89, 152, 0.8);
+    border-color: rgba(59, 89, 152, 0.6);
+}
+
+/* WhatsApp - Green */
+.btn-whatsapp {
+    background: rgba(37, 211, 102, 0.8);
+    border-color: rgba(37, 211, 102, 0.6);
+}
+
+/* Phone Call - Blue */
+.btn-phone {
+    background: rgba(0, 123, 255, 0.8);
+    border-color: rgba(0, 123, 255, 0.6);
+}
+
+/* Digital NameCard - Teal */
+.btn-namecard {
+    background: rgba(0, 199, 174, 0.8);
+    border-color: rgba(0, 199, 174, 0.6);
+}
+
+/* TikTok - Black/Pink */
+.btn-tiktok {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 0, 128, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-tiktok::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-tiktok:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+.btn i {
+    font-size: 16px;
+}
+
+/* Media Section */
+#media-section {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    font-family: system-ui, sans-serif;
+}
+
+.media-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.media-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#audio-player {
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+.audio-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsive design */
+@media (max-width: 520px) {
+    #box {
+        width: 380px;
+        height: 230px;
+    }
+    
+    .face {
+        width: 380px;
+        height: 230px;
+        background-size: 115% auto;
+        background-position: 20% center;
+    }
+    
+    .top, .bottom {
+        width: 380px;
+        height: 20px;
+    }
+    
+    .left, .right {
+        width: 20px;
+        height: 230px;
+    }
+    
+    .top { transform: rotateX(90deg) translateZ(115px); }
+    .bottom { transform: rotateX(-90deg) translateZ(115px); }
+    .left { transform: rotateY(-90deg) translateZ(190px); }
+    .right { transform: rotateY(90deg) translateZ(190px); }
+    
+    #buttons {
+        gap: 8px;
+        max-width: 380px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-width: 90px;
+    }
+    
+    #audio-player {
+        width: 280px;
+    }
+}
+
+@media (max-width: 400px) {
+    #box {
+        width: 340px;
+        height: 210px;
+    }
+    
+    .face {
+        width: 340px;
+        height: 210px;
+        background-size: 120% auto;
+        background-position: 25% center;
+    }
+    
+    .top, .bottom {
+        width: 340px;
+        height: 18px;
+    }
+    
+    .left, .right {
+        width: 18px;
+        height: 210px;
+    }
+    
+    .top { transform: rotateX(90deg) translateZ(105px); }
+    .bottom { transform: rotateX(-90deg) translateZ(105px); }
+    .left { transform: rotateY(-90deg) translateZ(170px); }
+    .right { transform: rotateY(90deg) translateZ(170px); }
+    
+    #buttons {
+        gap: 6px;
+    }
+    
+    .btn {
+        padding: 7px 10px;
+        min-width: 85px;
+        font-size: 11px;
+    }
+    
+    #audio-player {
+        width: 260px;
+    }
+}
 </style>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <base target="_blank">
 </head>
 <body>
-<div id="box">
-  <div class="face front"></div><div class="face back"></div><div class="face top"></div><div class="face bottom"></div><div class="face left"></div><div class="face right"></div>
-  <a id="linktree" class="btn" href="https://linktr.ee/yourname" target="_blank">Linktree</a>
-  <a id="site"     class="btn" href="https://www.impactsoftsolutions.com" target="_blank">Website</a>
-  <a id="wa"       class="btn" href="https://wa.me/60123706968" target="_blank">WhatsApp</a>
-</div>
+    <!-- 3D Card - TOP -->
+    <div id="box">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+    </div>
+    
+    <!-- Buttons Container - BELOW -->
+    <div id="buttons">
+        <a class="btn btn-website" href="https://www.impactsoftsolutions.com">
+            <i class="fas fa-globe"></i> Website
+        </a>
+        <a class="btn btn-facebook" href="https://www.facebook.com/lclim.ImpactSoft">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a class="btn btn-whatsapp" href="https://wa.me/60123706968">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a class="btn btn-phone" href="tel:+60123706968">
+            <i class="fas fa-phone"></i> Call Me
+        </a>
+        <a class="btn btn-namecard" href="https://linktr.ee/impactsoft">
+            <i class="fas fa-id-card"></i> Digital NameCard
+        </a>
+        <a class="btn btn-tiktok" href="https://tiktok.com/@impactsoft">
+            <i class="fab fa-tiktok"></i> TikTok
+        </a>
+    </div>
+
+    <!-- Media Section -->
+    <div id="media-section">
+        <button class="media-btn" onclick="toggleAudio()">
+            <i class="fas fa-music"></i> Play Business Audio
+        </button>
+        
+        <audio id="audio-player" class="hidden" controls loop>
+            <source src="https://lclim2928.github.io/2025nameCard/business-agreement_outro-329272.mp3" type="audio/mpeg">
+            <source src="https://lclim2928.github.io/2025nameCard/business-agreement_outro-329272.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="audio-status" id="audio-status">
+            Audio will auto-play when page loads
+        </div>
+    </div>
+
+    <script>
+        // Try to autoplay when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = document.getElementById('audio-player');
+            const audioStatus = document.getElementById('audio-status');
+            
+            // Try to autoplay
+            const playPromise = audioPlayer.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay started successfully
+                    audioStatus.textContent = "🎵 Audio is now playing automatically";
+                    audioStatus.style.color = "#4CAF50";
+                }).catch(error => {
+                    // Autoplay was prevented
+                    audioStatus.textContent = "🔇 Click 'Play Business Audio' to start music (autoplay blocked by browser)";
+                    audioStatus.style.color = "#ff9800";
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        });
+
+        function toggleAudio() {
+            const audioPlayer = document.getElementById('audio-player');
+            const audioStatus = document.getElementById('audio-status');
+            
+            if (audioPlayer.classList.contains('hidden')) {
+                audioPlayer.classList.remove('hidden');
+                audioPlayer.play().then(() => {
+                    audioStatus.textContent = "🎵 Audio is now playing";
+                    audioStatus.style.color = "#4CAF50";
+                }).catch(error => {
+                    audioStatus.textContent = "❌ Could not play audio";
+                    audioStatus.style.color = "#f44336";
+                });
+            } else {
+                audioPlayer.classList.add('hidden');
+                audioPlayer.pause();
+                audioStatus.textContent = "⏸️ Audio paused";
+                audioStatus.style.color = "#ff9800";
+            }
+        }
+    </script>
 </body>
 </html>
