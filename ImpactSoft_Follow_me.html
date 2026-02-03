@@ -23,6 +23,58 @@
             justify-content: center;
             align-items: center;
         }
+        /* Enhanced Blinking Announcement Bar */
+        .announcement-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #ff0000 0%, #ff6b6b 50%, #ff0000 100%);
+            background-size: 200% 100%;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            animation: blink 1.5s infinite, gradientShift 3s infinite alternate;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+        .announcement-bar a {
+            color: #fff200;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+            border: 2px solid #fff200;
+            font-weight: 800;
+        }
+        .announcement-bar a:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #fff200;
+        }
+        @keyframes blink {
+            0%, 100% { 
+                opacity: 1;
+                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
+            }
+            50% { 
+                opacity: 0.9;
+                box-shadow: 0 4px 30px rgba(255, 0, 0, 0.8);
+            }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
         .card {
             width: 100%;
             max-width: 1000px;
@@ -30,6 +82,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
             overflow: hidden;
+            margin-top: 70px; /* Space for announcement bar */
         }
         .header {
             background: linear-gradient(120deg, #1a3a6c 0%, #0d47a1 100%);
@@ -384,6 +437,10 @@
             font-size: 1.3rem;
         }
         @media (max-width: 768px) {
+            .announcement-bar {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
             .logo-container { flex-direction: column; text-align: center; }
             .logo-text { font-size: 2.2rem; }
             .multilingual { font-size: 1.2rem; }
@@ -396,6 +453,20 @@
             .scan-button { font-size: 1.3rem; padding: 15px 25px; }
         }
         @media (max-width: 480px) {
+            .announcement-bar {
+                font-size: 0.85rem;
+                padding: 10px 8px;
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+            }
+            .announcement-bar a {
+                margin-left: 0;
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
             .header { padding: 20px; }
             .content { padding: 20px; }
             .logo-text { font-size: 1.9rem; }
@@ -407,6 +478,14 @@
     </style>
 </head>
 <body>
+    <!-- Enhanced Blinking Announcement Bar -->
+    <div class="announcement-bar">
+        <span>Help me, Share this instantly at your Facebook</span>
+        <a href="https://www.facebook.com/sharer.php?u=https://rebrand.ly/ImpactSoft&quote=Follow ImpactSoft - Your Business Software specialist in Town! Get exclusive updates, promotions, and business tips. Scan QR or visit link to follow." target="_blank">
+            <i class="fab fa-facebook-f"></i> Click here to Share
+        </a>
+    </div>
+    
     <div class="card">
         <div class="header">
             <div class="logo-container">
@@ -607,7 +686,7 @@
     
     <script>
         // Add hover effects and analytics tracking
-        document.querySelectorAll('.social-btn, .additional-btn, .scan-button').forEach(button => {
+        document.querySelectorAll('.social-btn, .additional-btn, .scan-button, .announcement-bar a').forEach(button => {
             button.addEventListener('click', function() {
                 const buttonText = this.textContent || this.querySelector('div:nth-child(2) div').textContent;
                 console.log(`Clicked on ${buttonText} button`);
