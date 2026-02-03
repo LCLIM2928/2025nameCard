@@ -23,14 +23,14 @@
             justify-content: center;
             align-items: center;
         }
-        /* Enhanced Blinking Announcement Bar */
+        /* Enhanced Blinking Announcement Bar - FIXED ANIMATION */
         .announcement-bar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             background: linear-gradient(90deg, #ff0000 0%, #ff6b6b 50%, #ff0000 100%);
-            background-size: 200% 100%;
+            background-size: 200% 200%;
             color: white;
             padding: 15px 20px;
             text-align: center;
@@ -38,7 +38,7 @@
             font-size: 1.3rem;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-            animation: blink 1.5s infinite, gradientShift 3s infinite alternate;
+            animation: blink 0.8s infinite alternate, gradientMove 3s infinite linear;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: 0.5px;
         }
@@ -55,25 +55,36 @@
             margin-left: 10px;
             border: 2px solid #fff200;
             font-weight: 800;
+            animation: pulse 2s infinite;
         }
         .announcement-bar a:hover {
             background: rgba(0, 0, 0, 0.5);
             transform: scale(1.1);
-            box-shadow: 0 0 15px #fff200;
+            box-shadow: 0 0 20px #fff200;
+            animation: none;
         }
+        /* FIXED: Simple blinking animation */
         @keyframes blink {
-            0%, 100% { 
+            0% { 
                 opacity: 1;
-                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
+                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.8);
             }
-            50% { 
-                opacity: 0.9;
-                box-shadow: 0 4px 30px rgba(255, 0, 0, 0.8);
+            100% { 
+                opacity: 0.8;
+                box-shadow: 0 4px 30px rgba(255, 107, 107, 1);
             }
         }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        /* Gradient moving animation */
+        @keyframes gradientMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        /* Button pulsing animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         .card {
             width: 100%;
@@ -478,7 +489,7 @@
     </style>
 </head>
 <body>
-    <!-- Enhanced Blinking Announcement Bar -->
+    <!-- Enhanced Blinking Announcement Bar - FIXED -->
     <div class="announcement-bar">
         <span>Help me, Share this instantly at your Facebook</span>
         <a href="https://www.facebook.com/sharer.php?u=https://rebrand.ly/ImpactSoft&quote=Follow ImpactSoft - Your Business Software specialist in Town! Get exclusive updates, promotions, and business tips. Scan QR or visit link to follow." target="_blank">
