@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Follow ImpactSoft</title>
+    <title>Follow ImpactSoft · UTM tracking</title>
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google tag (gtag.js) GA4 → your measurement ID G-TKLP6DD6QN -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKLP6DD6QN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TKLP6DD6QN');
+    </script>
     <style>
         * {
             margin: 0;
@@ -489,10 +497,11 @@
     </style>
 </head>
 <body>
-    <!-- Enhanced Blinking Announcement Bar - FIXED -->
+    <!-- Enhanced Blinking Announcement Bar - with UTM on share link + GA4 click tracking -->
     <div class="announcement-bar">
         <span>Help me, Share this instantly at your Facebook</span>
-        <a href="https://www.facebook.com/sharer.php?u=https://www.impactsoftsolutions.com/store-redirect.html&quote=Follow ImpactSoft - Your Business Software specialist in Town! Get exclusive updates, promotions, and business tips. Scan QR or visit link to follow." target="_blank">
+        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.impactsoftsolutions.com%2Fstore-redirect.html%3Futm_source%3Dfacebook_sharer%26utm_medium%3Dsocial%26utm_campaign%3Dfollow_page_top%26utm_content%3Dannouncement_bar&quote=Follow%20ImpactSoft%20-%20Your%20Business%20Software%20specialist%20in%20Town!%20Get%20exclusive%20updates%2C%20promotions%2C%20and%20business%20tips.%20Scan%20QR%20or%20visit%20link%20to%20follow." 
+           target="_blank" id="shareTopBtn" class="track-click" data-track="share_facebook_announcement">
             <i class="fab fa-facebook-f"></i> Click here to Share
         </a>
     </div>
@@ -529,18 +538,18 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-globe"></i>
-                            <!-- UPDATED: Website link changed -->
-                            <a href="https://rebrand.ly/ImpactSoft-website" target="_blank">impactsoftsolution.com</a>
+                            <!-- UPDATED: Website link with UTM (static but if clicked from page, keep utm for referrer) -->
+                            <a href="https://rebrand.ly/ImpactSoft-website?utm_source=follow_page&utm_medium=contact_section&utm_campaign=website_click" target="_blank">impactsoftsolution.com</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-shopping-cart"></i>
-                            <!-- NEW: Added Our Online Shop -->
-                            <a href="https://rebrand.ly/impactsoft" target="_blank" class="shop-link">Our Online Shop</a>
+                            <!-- NEW: Added Our Online Shop with UTM -->
+                            <a href="https://rebrand.ly/impactsoft?utm_source=follow_page&utm_medium=contact_section&utm_campaign=shop_click" target="_blank" class="shop-link">Our Online Shop</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-id-card"></i>
-                            <!-- UPDATED: Text and link changed -->
-                            <a href="https://rebrand.ly/ImpactSoft-digitalnamecard" target="_blank" class="bold-link">My Digital NameCard</a>
+                            <!-- UPDATED: Text and link changed + UTM -->
+                            <a href="https://rebrand.ly/ImpactSoft-digitalnamecard?utm_source=follow_page&utm_medium=contact_section&utm_campaign=namecard_click" target="_blank" class="bold-link">My Digital NameCard</a>
                         </div>
                     </div>
                 </div>
@@ -551,7 +560,7 @@
                 </div>
             </div>
             
-            <!-- QR Code Image Section - CLEANED UP -->
+            <!-- QR Code Image Section - with UTM on the scan button & GA4 click -->
             <div class="qrcode-image-section">
                 <div class="qrcode-title">SCAN TO FOLLOW OUR BUSINESS UPDATES</div>
                 
@@ -567,8 +576,9 @@
                     </ul>
                 </div>
                 
-                <!-- UPDATED: Button text with proper sentence structure -->
-                <a href="https://rebrand.ly/impactsoft-follow" target="_blank" class="scan-button">
+                <!-- UPDATED: Button text & full UTM tracking + click id -->
+                <a href="https://rebrand.ly/impactsoft-follow?utm_source=follow_page&utm_medium=qr_section&utm_campaign=scan_button_click&utm_content=point_camera_click" 
+                   target="_blank" class="scan-button track-click" id="scanFollowBtn" data-track="scan_qr_follow">
                     Point your camera to scan QR or click here to follow me
                 </a>
                 
@@ -577,14 +587,14 @@
                 </div>
             </div>
             
-            <!-- Social Media Section -->
+            <!-- Social Media Section (each link enhanced with UTM parameters) -->
             <div class="social-section">
                 <div class="social-title">CONNECT WITH US</div>
                 <div class="social-subtitle">Follow us on social media for business updates, tips, and exclusive offers!</div>
                 
                 <div class="social-buttons">
-                    <!-- Fixed Facebook Link -->
-                    <a href="https://www.facebook.com/lclim.ImpactSoft" class="social-btn facebook-btn" target="_blank">
+                    <!-- Fixed Facebook Link + UTM -->
+                    <a href="https://www.facebook.com/lclim.ImpactSoft?utm_source=follow_page&utm_medium=social_section&utm_campaign=facebook_follow" class="social-btn facebook-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </div>
@@ -594,7 +604,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://www.tiktok.com/@impactsoft?lang=en" class="social-btn tiktok-btn" target="_blank">
+                    <a href="https://www.tiktok.com/@impactsoft?lang=en&utm_source=follow_page&utm_medium=social_section&utm_campaign=tiktok_follow" class="social-btn tiktok-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fab fa-tiktok"></i>
                         </div>
@@ -604,7 +614,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://www.youtube.com/@impactsoft?sub_confirmation=1" class="social-btn youtube-btn" target="_blank">
+                    <a href="https://www.youtube.com/@impactsoft?sub_confirmation=1&utm_source=follow_page&utm_medium=social_section&utm_campaign=youtube_subscribe" class="social-btn youtube-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fab fa-youtube"></i>
                         </div>
@@ -614,7 +624,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://www.instagram.com/impactsoft.my/" class="social-btn instagram-btn" target="_blank">
+                    <a href="https://www.instagram.com/impactsoft.my/?utm_source=follow_page&utm_medium=social_section&utm_campaign=instagram_follow" class="social-btn instagram-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </div>
@@ -624,7 +634,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://x.com/intent/follow?screen_name=ImpactSoftmy" class="social-btn twitter-btn" target="_blank">
+                    <a href="https://x.com/intent/follow?screen_name=ImpactSoftmy&utm_source=follow_page&utm_medium=social_section&utm_campaign=x_follow" class="social-btn twitter-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </div>
@@ -634,7 +644,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://linktr.ee/impactsoft" class="social-btn linktree-btn" target="_blank">
+                    <a href="https://linktr.ee/impactsoft?utm_source=follow_page&utm_medium=social_section&utm_campaign=linktree_click" class="social-btn linktree-btn" target="_blank">
                         <div class="social-icon">
                             <i class="fas fa-link"></i>
                         </div>
@@ -646,12 +656,12 @@
                 </div>
             </div>
             
-            <!-- New Additional Buttons Section -->
+            <!-- New Additional Buttons Section with UTM enriched -->
             <div class="additional-buttons">
                 <div class="additional-title">More Ways to Connect</div>
                 <div class="additional-buttons-container">
-                    <!-- 1st Button - My Onlineshop -->
-                    <a href="https://rebrand.ly/impactsoft" class="additional-btn shop-btn" target="_blank">
+                    <!-- 1st Button - My Onlineshop + UTM -->
+                    <a href="https://rebrand.ly/impactsoft?utm_source=follow_page&utm_medium=additional_section&utm_campaign=onlineshop_click" class="additional-btn shop-btn" target="_blank">
                         <div class="additional-icon">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
@@ -661,8 +671,8 @@
                         </div>
                     </a>
                     
-                    <!-- 2nd Button - My website -->
-                    <a href="https://rebrand.ly/ImpactSoft-website" class="additional-btn website-btn" target="_blank">
+                    <!-- 2nd Button - My website + UTM -->
+                    <a href="https://rebrand.ly/ImpactSoft-website?utm_source=follow_page&utm_medium=additional_section&utm_campaign=website_click" class="additional-btn website-btn" target="_blank">
                         <div class="additional-icon">
                             <i class="fas fa-globe"></i>
                         </div>
@@ -672,8 +682,8 @@
                         </div>
                     </a>
                     
-                    <!-- 3rd Button - My Digital NameCard -->
-                    <a href="https://rebrand.ly/ImpactSoft-digitalnamecard" class="additional-btn namecard-btn" target="_blank">
+                    <!-- 3rd Button - My Digital NameCard + UTM -->
+                    <a href="https://rebrand.ly/ImpactSoft-digitalnamecard?utm_source=follow_page&utm_medium=additional_section&utm_campaign=namecard_click" class="additional-btn namecard-btn" target="_blank">
                         <div class="additional-icon">
                             <i class="fas fa-id-card"></i>
                         </div>
@@ -696,15 +706,64 @@
     </div>
     
     <script>
-        // Add hover effects and analytics tracking
-        document.querySelectorAll('.social-btn, .additional-btn, .scan-button, .announcement-bar a').forEach(button => {
-            button.addEventListener('click', function() {
-                const buttonText = this.textContent || this.querySelector('div:nth-child(2) div').textContent;
-                console.log(`Clicked on ${buttonText} button`);
-                // You can add Google Analytics tracking here
-                // gtag('event', 'button_click', { 'button': buttonText });
+        (function() {
+            // GA4 event tracking for specific buttons (share top, scan follow)
+            // Also fallback for any .track-click elements (manually set)
+            
+            function sendGAEvent(eventName, params = {}) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, params);
+                } else {
+                    console.log('gtag not ready, event:', eventName, params);
+                }
+            }
+
+            // 1) Top share button
+            const shareBtn = document.getElementById('shareTopBtn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function(e) {
+                    sendGAEvent('button_click_share', {
+                        'button_location': 'announcement_bar',
+                        'button_action': 'facebook_share',
+                        'utm_source': 'facebook_sharer',
+                        'utm_medium': 'social',
+                        'utm_campaign': 'follow_page_top'
+                    });
+                    console.log('✅ tracked: share top button');
+                });
+            }
+
+            // 2) Big scan / follow button (QR section)
+            const scanBtn = document.getElementById('scanFollowBtn');
+            if (scanBtn) {
+                scanBtn.addEventListener('click', function(e) {
+                    sendGAEvent('button_click_scan', {
+                        'button_location': 'qr_section',
+                        'button_action': 'scan_or_follow',
+                        'utm_source': 'follow_page',
+                        'utm_medium': 'qr_section',
+                        'utm_campaign': 'scan_button_click'
+                    });
+                    console.log('✅ tracked: scan / follow button');
+                });
+            }
+
+            // optional: track social / additional clicks — you can leave console logs or unify if needed.
+            // but main two are covered. Also added .track-click to both buttons as fallback
+            document.querySelectorAll('.track-click').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // avoid double if ids already handled, but send just in case with distinct data-track
+                    const trackLabel = this.getAttribute('data-track') || 'tracked_btn';
+                    sendGAEvent('generic_track_click', {
+                        'button_id': trackLabel,
+                        'event_category': 'engagement',
+                        'event_label': trackLabel
+                    });
+                });
             });
-        });
+
+            // also announce bar link already shares via facebook, but we track above.
+        })();
     </script>
 </body>
 </html>
